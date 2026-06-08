@@ -1,28 +1,25 @@
 # Mobile App Architect — Phase Templates
 
-Replace all `[PLACEHOLDERS]` with user-specific values before generating output.
+Replace `[PLACEHOLDERS]` with user-specific values before generation.
 
 ---
 
 ## Phase 1: App Blueprint (Product Strategy)
 
 **Prompt:**
-> Act as principal mobile product architect. I'm creating `[APP NAME]` for `[TARGET USERS]` to solve `[PROBLEM]`. Create a mobile-first blueprint with:
-> - **Personas:** 2-3 detailed personas (name, age, goals, frustrations, behavior patterns)
-> - **Pain Points:** Top 5 problems the app solves, ranked by severity
-> - **Value Proposition:** Single sentence + 3 supporting differentiators
+> Act as principal mobile product architect. Build `[APP NAME]` for `[TARGET USERS]` solving `[PROBLEM]`. Mobile-first blueprint with:
+> - **Personas:** 2-3 detailed (name, age, goals, frustrations, behavior)
+> - **Pain Points:** Top 5 problems solved, ranked by severity
+> - **Value Proposition:** 1 sentence + 3 differentiators
 > - **Features by scope:**
->   - **MVP** (must-have, ship in 4-6 weeks)
->   - **V1** (core enhancement, ship in 8-12 weeks)
->   - **V2** (growth features, 16+ weeks)
+>   - **MVP** (must-have, ship 4-6 weeks)
+>   - **V1** (enhancement, ship 8-12 weeks)
+>   - **V2** (growth, 16+ weeks)
 > - **User Flow:** End-to-end happy path (5-8 steps)
 > - **Monetization:** Model (subscription/freemium/ads/one-time), pricing tier, conversion triggers
-> - **Risks:**
->   - Product risks (3+)
->   - UX risks (3+)
->   - Technology risks (3+)
+> - **Risks:** Product (3+), UX (3+), Technology (3+)
 >
-> Format: **table** for features + risks. **Summary paragraph** for flow and monetization.
+> Format: **table** for features + risks. **Summary paragraph** for flow + monetization.
 
 **Output template:**
 ```markdown
@@ -34,7 +31,6 @@ Replace all `[PLACEHOLDERS]` with user-specific values before generating output.
 
 ## Pain Points
 1. [problem] — severity: high/medium/low
-2. ...
 
 ## Value Proposition
 **[One sentence.]**
@@ -70,13 +66,13 @@ Replace all `[PLACEHOLDERS]` with user-specific values before generating output.
 ## Phase 2: App Structure (Mobile Architecture)
 
 **Prompt:**
-> Act as senior mobile architect. Design the production-ready structure of `[APP NAME]` in `[iOS/Android/Flutter/React Native]`. Include:
+> Act as senior mobile architect. Design production-ready structure for `[APP NAME]` in `[iOS/Android/Flutter/React Native]`. Include:
 > - **Folder structure** (tree view)
-> - **Screens** (list with navigation route)
+> - **Screens** (list with nav route)
 > - **Reusable components** (shared widgets)
 > - **State management** (approach, store shape, data flow)
 > - **API layer** (service classes, interceptors, error mapping)
-> - **Authentication flow** (login, token refresh, logout, protected routes)
+> - **Auth flow** (login, token refresh, logout, protected routes)
 > - **Navigation** (stack, tab, modal patterns)
 > - **Storage** (local cache, secure storage, preferences)
 > - **Error handling** (global handler, retry, offline)
@@ -117,11 +113,11 @@ lib/
 
 ## State Management
 - **Approach:** [e.g., Riverpod/Redux/Bloc]
-- **Store shape:** [JSON structure of app state]
-- **Data flow:** [unidirectional diagram description]
+- **Store shape:** [JSON structure]
+- **Data flow:** [unidirectional]
 
 ## API Layer
-- **HTTP client:** [e.g., Dio/Alamofire/URLSession]
+- **HTTP client:** [Dio/Alamofire/URLSession]
 - **Base URL:** [value]
 - **Interceptors:** [auth, logging, retry]
 - **Error mapping:** [APIException → DomainException]
@@ -132,15 +128,15 @@ lib/
 - **Session persistence:** [secure storage + biometric]
 
 ## Navigation
-- **Main navigation:** [bottom tabs / drawer / tab bar]
+- **Main nav:** [bottom tabs / drawer / tab bar]
 - **Modals:** [full-screen / bottom sheet]
-- **Deep linking:** [scheme + path structure]
+- **Deep linking:** [scheme + path]
 
 ## Storage
 | Type | Tool | Data |
 |------|------|------|
 | Secure | ... | tokens, keys |
-| Cache | ... | user data, preferences |
+| Cache | ... | user data, prefs |
 | DB | ... | offline records |
 
 ## Error Handling
@@ -160,13 +156,13 @@ lib/
 ## Phase 3: UX Flow (UX Design)
 
 **Prompt:**
-> Act as senior mobile UX designer. Create screen-by-screen UX plan for `[APP NAME]` for `[TARGET USERS]` in `[STYLE]` style. For each screen include:
-> - **Objective** (user goal on this screen)
+> Act as senior mobile UX designer. Create screen-by-screen UX plan for `[APP NAME]` for `[TARGET USERS]` in `[STYLE]` style. Per screen:
+> - **Objective** (user goal)
 > - **Main action** (primary interaction)
-> - **UI elements** (list with layout description)
+> - **UI elements** (list + layout)
 > - **States:** empty, loading, error, success
 > - **CTA** (button text, placement, behavior)
-> - **Microcopy** (key labels, placeholders, error messages)
+> - **Microcopy** (labels, placeholders, error messages)
 > - **Retention opportunity** (what brings user back)
 
 **Output template:**
@@ -178,37 +174,32 @@ lib/
 |---------|--------|
 | Objective | Brand intro, check auth |
 | Main action | Auto-check → navigate |
-| UI | Logo centered, loading spinner below |
+| UI | Logo centered, spinner below |
 | Loading | Lottie animation (2s max) |
-| Error | Offline state with retry button |
+| Error | Offline state + retry button |
 | CTA | None (auto-transition) |
 | Microcopy | None |
 | Retention | - |
-
-## Screen 2: [Screen Name]
-...
-
-*(Repeat for every screen in the app)*
 ```
 
 ---
 
-## Phase 4: PRD (Product Requirements Document)
+## Phase 4: PRD (Product Requirements)
 
 **Prompt:**
-> Act as CTO + PM of a startup. Write a concise PRD for `[APP NAME]`. Include:
-> - **Product overview** (one paragraph)
-> - **User problem** (the job to be done)
+> Act as CTO + PM of startup. Write concise PRD for `[APP NAME]`. Include:
+> - **Product overview** (1 paragraph)
+> - **User problem** (job to be done)
 > - **Goals** (3-5 OKRs)
-> - **Non-goals** (explicitly excluded from scope)
+> - **Non-goals** (excluded scope)
 > - **Target audience** (demographics, tech literacy, platform)
-> - **Core features** (list with acceptance criteria per feature)
+> - **Core features** (list + acceptance criteria per feature)
 > - **Requirements** (functional + non-functional)
 > - **Edge cases** (offline, slow network, empty state, concurrent access, account deletion)
-> - **Technical considerations** (platform choice, 3rd-party dependencies, compliance)
-> - **Success metrics** (DAU/MAU, retention D1/D7/D30, conversion rate, NPS, crash rate)
-> - **Launch scope** (what ships in v1.0)
-> - **Roadmap** (6-month timeline with milestones)
+> - **Technical considerations** (platform, 3rd-party deps, compliance)
+> - **Success metrics** (DAU/MAU, D1/D7/D30 retention, conversion rate, NPS, crash rate)
+> - **Launch scope** (v1.0)
+> - **Roadmap** (6-month timeline)
 
 **Output template:**
 ```markdown
@@ -243,8 +234,8 @@ lib/
 - **Account deletion:** ...
 
 ## Success Metrics
-| Metric | Target | Measurement |
-|--------|--------|------------|
+| Metric | Target | Tool |
+|--------|--------|------|
 | D1 retention | >40% | Amplitude |
 | D7 retention | >20% | Amplitude |
 | Crash rate | <0.1% | Firebase |
@@ -268,17 +259,17 @@ lib/
 **Prompt:**
 > Act as senior backend architect. For `[APP NAME]` with features `[FEATURES]`, generate backend requirements:
 > - **DB schema** (tables, relationships, indexes, migration strategy)
-> - **Auth/roles** (user model, roles/permissions, OAuth providers, MFA)
-> - **APIs** (endpoints grouped by domain, methods, request/response, pagination)
-> - **Integrations** (3rd-party services, webhooks, web sockets)
-> - **Notifications** (push, email, in-app — triggers and delivery)
+> - **Auth/roles** (user model, roles, OAuth providers, MFA)
+> - **APIs** (endpoints by domain, methods, request/response, pagination)
+> - **Integrations** (3rd-party, webhooks, web sockets)
+> - **Notifications** (push, email, in-app — triggers, delivery)
 > - **Storage** (file uploads, CDN, signed URLs)
 > - **Payments** (provider, products, webhooks, receipts, refunds)
-> - **Admin panel** (dashboard, user management, analytics, moderation)
-> - **Rate limits** (tiered limits, burst handling, throttle strategy)
-> - **Security risks** (OWASP top 10, data privacy, GDPR, compliance)
+> - **Admin panel** (dashboard, user mgmt, analytics, moderation)
+> - **Rate limits** (tiered, burst handling, throttle strategy)
+> - **Security risks** (OWASP top 10, data privacy, GDPR)
 >
-> Keep it **MVP-friendly** — flag what's deferred.
+> Keep **MVP-friendly** — flag deferred items.
 
 **Output template:**
 ```markdown
@@ -288,49 +279,47 @@ lib/
 | Table | Columns | Indexes | Relations |
 |-------|---------|---------|-----------|
 | users | id, email, name, ... | email UNIQUE | → sessions |
-| ... | ... | ... | ... |
 
 ## Auth & Roles
 - **Auth method:** [JWT / OAuth / custom]
 - **Roles:** [user, admin, moderator]
-- **OAuth providers:** [Google, Apple, email/password]
-- **MFA:** [SMS/TOTP/biometric — deferred to v1]
+- **OAuth:** [Google, Apple, email/password]
+- **MFA:** [deferred to v1]
 
 ## APIs
 | Method | Endpoint | Auth | Description |
 |--------|----------|------|-------------|
-| GET | /api/v1/items | JWT | List items (paginated) |
-| POST | /api/v1/items | JWT | Create item |
-| ... | ... | ... | ... |
+| GET | /api/v1/items | JWT | List (paginated) |
+| POST | /api/v1/items | JWT | Create |
 
 ## Integrations
 | Service | Purpose | Deferred? |
 |---------|---------|-----------|
 | Stripe | Payments | No |
 | SendGrid | Emails | No |
-| Firebase Cloud Messaging | Push | No |
+| FCM | Push | No |
 
 ## Notifications
-- **Triggers:** [e.g., new follower, payment received, account alert]
-- **Delivery:** Push (FCM/APNs) + Email (SendGrid) + In-app feed
+- **Triggers:** [new follower, payment, account alert]
+- **Delivery:** Push (FCM/APNs) + Email + In-app
 
 ## Storage
 - **Provider:** [S3 / Cloud Storage / Azure Blob]
-- **Policy:** Signed URLs, 15-min expiry, CDN cache 24h
+- **Policy:** Signed URLs, 15-min expiry, CDN 24h
 
 ## Payments
 - **Provider:** Stripe
-- **Products:** [subscription_monthly, subscription_yearly, consumable_credit]
-- **Webhooks:** checkout.session.completed, invoice.paid, customer.subscription.deleted
+- **Products:** [subscription_monthly, subscription_yearly, consumable]
+- **Webhooks:** checkout.session.completed, invoice.paid, subscription.deleted
 
 ## Admin Panel
 - **Dashboard:** DAU, MRR, crash rate, active users
-- **User management:** search, ban, delete, export
-- **Content moderation:** flag, review, remove
+- **User mgmt:** search, ban, delete, export
+- **Moderation:** flag, review, remove
 
 ## Rate Limits
-| Tier | Requests/min | Burst |
-|------|-------------|-------|
+| Tier | Req/min | Burst |
+|------|---------|-------|
 | Free | 60 | 10 |
 | Pro | 300 | 50 |
 | Admin | 1000 | 200 |
@@ -339,7 +328,7 @@ lib/
 | Risk | Impact | Mitigation | Deferred |
 |------|--------|------------|----------|
 | SQL injection | Critical | Parameterized queries | No |
-| Rate limit bypass | High | IP + user-based limits | No |
+| Rate limit bypass | High | IP + user limits | No |
 | GDPR compliance | High | Data deletion API | V1 |
 ```
 
@@ -348,17 +337,17 @@ lib/
 ## Phase 6: UI Design System (Visual Design)
 
 **Prompt:**
-> Act as world-class mobile UI designer. Create a UI design system for `[APP NAME]` for `[TARGET USERS]` with a `[BRAND STYLE]` style. Include:
-> - **Colors** (primary, secondary, accent, neutral, semantic — hex codes, usage rules)
-> - **Typography** (typeface, scale, weights, line heights, usage per element)
-> - **Spacing** (4px grid system, padding for all breakpoints)
+> Act as world-class mobile UI designer. Create UI design system for `[APP NAME]` for `[TARGET USERS]` in `[BRAND STYLE]` style. Include:
+> - **Colors** (primary, secondary, accent, neutral, semantic — hex + usage)
+> - **Typography** (typeface, scale, weights, line heights, per element)
+> - **Spacing** (4px grid, all breakpoints)
 > - **Buttons** (primary, secondary, ghost, icon, destructive — states: default, pressed, disabled, loading)
 > - **Inputs** (text, search, password, textarea, dropdown — states: empty, focused, error, disabled)
 > - **Cards** (default, elevated, tappable — padding, radius, shadow)
-> - **Navigation patterns** (tab bar, navbar, bottom sheet, modal)
+> - **Nav patterns** (tab bar, navbar, bottom sheet, modal)
 > - **Icons** (style: outlined/filled, weight, sizing grid)
 > - **Onboarding style** (illustration type, animation direction, skip/paginate)
-> - **Premium visual direction** (animations, micro-interactions, transitions, elevation cues)
+> - **Premium direction** (animations, micro-interactions, transitions, elevation)
 
 **Output template:**
 ```markdown
@@ -367,7 +356,7 @@ lib/
 ## Colors
 | Token | Hex | Usage |
 |-------|-----|-------|
-| primary | #... | CTAs, active states |
+| primary | #... | CTAs, active |
 | secondary | #... | accents, links |
 | neutral-100 | #... | background |
 | neutral-900 | #... | text primary |
@@ -386,8 +375,8 @@ lib/
 **Grid:** 4px base. Increments: 4, 8, 12, 16, 20, 24, 32, 40, 48, 56, 64.
 
 ## Buttons
-| Type | Height | Radius | Text | States |
-|------|--------|--------|------|--------|
+| Type | H | Radius | Text | States |
+|------|---|--------|------|--------|
 | Primary | 52 | 12 | 16/600 | bg-primary, opacity-0.5 disabled, spinner loading |
 | Secondary | 48 | 12 | 16/600 | border + transparent bg |
 | Ghost | 44 | 8 | 14/500 | no bg, text only |
@@ -408,26 +397,26 @@ lib/
 | Tappable | 12 | 16 | + press scale(0.98) |
 
 ## Navigation
-- **Tab bar:** 4-5 icons + labels, active = primary, inactive = neutral-400
-- **Bottom sheet:** grabber handle, 60% / 90% snap points
-- **Modal:** full-screen with close icon, slide-up transition (250ms ease-out)
+- **Tab bar:** 4-5 icons + labels, active=primary, inactive=neutral-400
+- **Bottom sheet:** grabber, 60%/90% snap points
+- **Modal:** full-screen + close icon, slide-up (250ms ease-out)
 
 ## Icons
 - **Style:** outlined, 1.5px stroke
-- **Size grid:** 20, 24, 28, 32
-- **Weight:** regular (20x20), medium (24x24), large (28x28)
+- **Sizes:** 20, 24, 28, 32
+- **Weight:** regular (20), medium (24), large (28)
 
 ## Onboarding
-- **Illustrations:** Isometric 3D style, warm color palette
-- **Animation:** Lottie — fade in from bottom, stagger 200ms per slide
-- **Navigation:** Skip button top-right, dot indicators, "Next" / "Get Started"
+- **Illustrations:** Isometric 3D, warm palette
+- **Animation:** Lottie — fade bottom, stagger 200ms per slide
+- **Nav:** Skip top-right, dot indicators, "Next"/"Get Started"
 - **Max slides:** 4
 
-## Premium Visual Direction
-- **Micro-interactions:** button press scale(0.95), card spring animation, pull-to-refresh custom icon
-- **Transitions:** shared element hero animations, page curl between tabs
-- **Elevation:** custom shadow paths (not default box-shadow), 3 levels
-- **Loading:** shimmer skeleton screens (not spinners)
+## Premium Direction
+- **Micro-interactions:** button press scale(0.95), card spring, pull-to-refresh custom icon
+- **Transitions:** shared element hero, page curl between tabs
+- **Elevation:** custom shadow paths, 3 levels
+- **Loading:** shimmer skeleton (not spinners)
 - **Empty states:** illustrated + CTA (not plain text)
 ```
 
@@ -436,16 +425,16 @@ lib/
 ## Phase 7: Starter Code (Code Scaffolding)
 
 **Prompt:**
-> Act as senior engineer in `[SwiftUI/Kotlin/Flutter/React Native]`. Generate the starter codebase for `[APP NAME]` with `[FEATURES]`. Include:
-> - **Project setup** (initialization commands, dependencies, config files)
-> - **Navigation setup** (route definitions, tab navigation, stack navigation)
-> - **Authentication flow** (login screen, auth provider, token storage, protected routes)
+> Act as senior engineer in `[SwiftUI/Kotlin/Flutter/React Native]`. Generate starter codebase for `[APP NAME]` with `[FEATURES]`. Include:
+> - **Project setup** (init commands, deps, config)
+> - **Navigation** (route defs, tab nav, stack nav)
+> - **Auth flow** (login screen, auth provider, token storage, protected routes)
 > - **Home screen** (list/grid, pull-to-refresh, skeleton loading)
-> - **API layer** (HTTP client, interceptors, endpoint definitions, error handling)
-> - **Reusable components** (button, card, input, loading, empty state, error state)
+> - **API layer** (HTTP client, interceptors, endpoints, error handling)
+> - **Reusable components** (button, card, input, loading, empty, error)
 > - **State management** (store, actions/reducers, selectors)
-> - **Mock data** (fixtures, mock API responses, development mode toggle)
-> - **Loading & error handling** (global error boundary, retry, offline banner, toast)
+> - **Mock data** (fixtures, mock responses, dev toggle)
+> - **Loading & error handling** (error boundary, retry, offline banner, toast)
 
 **Output template:**
 ```markdown
@@ -453,7 +442,7 @@ lib/
 
 ## Tech Stack
 - **Framework:** [React Native / Flutter / SwiftUI / Jetpack Compose]
-- **State management:** [Redux Toolkit / Riverpod / Combine / MutableState]
+- **State mgmt:** [Redux Toolkit / Riverpod / Combine / MutableState]
 - **Navigation:** [React Navigation / Navigator 2.0 / NavigationStack / NavHost]
 - **HTTP client:** [Axios / Dio / URLSession / Retrofit]
 - **Storage:** [AsyncStorage / SharedPreferences / UserDefaults / DataStore]
@@ -512,17 +501,17 @@ final router = GoRouter(
 ## Phase 8: Brutal Audit (QA + Growth)
 
 **Prompt:**
-> Act as brutally honest mobile QA lead + growth PM. Audit this app idea: `[APP NAME]` — `[APP DESCRIPTION FROM PHASE 1]`. Find:
-> - **Weak UX** (friction points, confusing navigation, poor affordance)
-> - **Confusing flows** (drop-off points, unclear CTAs, dead ends)
-> - **Retention risks** (no reason to return, boring onboarding, notification fatigue)
-> - **Monetization errors** (paywall too early, wrong pricing, no perceived value)
-> - **App Store risks** (rejected design patterns, guideline violations, screenshot weaknesses)
+> Act as brutally honest mobile QA lead + growth PM. Audit `[APP NAME]` — `[APP DESCRIPTION FROM PHASE 1]`. Find:
+> - **Weak UX** (friction, confusing nav, poor affordance)
+> - **Confusing flows** (drop-off, unclear CTAs, dead ends)
+> - **Retention risks** (no return reason, boring onboarding, notification fatigue)
+> - **Monetization errors** (early paywall, wrong pricing, no perceived value)
+> - **App Store risks** (rejected patterns, guideline violations, weak screenshots)
 > - **Privacy issues** (unnecessary permissions, data collection, GDPR blind spots)
-> - **Tech debt traps** (over-engineering, wrong state management, unscalable schema)
+> - **Tech debt traps** (over-engineering, wrong state mgmt, unscalable schema)
 > - **Unnecessary features** (YAGNI violations, feature creep)
 >
-> For each finding: **rating** (critical/major/minor), **impact** (retention/revenue/trust/performance), and **suggested fix**.
+> Per finding: **rating** (critical/major/minor), **impact** (retention/revenue/trust/performance), **fix**.
 
 **Output template:**
 ```markdown
@@ -540,9 +529,9 @@ final router = GoRouter(
 | 8 | Unnecessary | [finding] | Minor | All | [fix] |
 
 ## Priority Fixes
-1. [Fix 1] — do before launch
-2. [Fix 2] — do before launch
-3. [Fix 3] — do in V1
+1. [Fix 1] — before launch
+2. [Fix 2] — before launch
+3. [Fix 3] — V1
 ```
 
 ---
@@ -550,16 +539,16 @@ final router = GoRouter(
 ## Phase 9: Launch Plan (GTM Strategy)
 
 **Prompt:**
-> Act as mobile launch strategist. Create a GTM plan for `[APP NAME]` for `[TARGET USERS]`. Include:
-> - **Pre-launch checklist** (30-day, 14-day, 7-day, 1-day before)
+> Act as mobile launch strategist. Create GTM plan for `[APP NAME]` for `[TARGET USERS]`. Include:
+> - **Pre-launch checklist** (30-day, 14-day, 7-day, 1-day)
 > - **Beta plan** (TestFlight/Play Console, cohort size, feedback cadence, NPS target)
 > - **Onboarding improvement** (first-run funnel, activation step, time-to-value, aha moment)
 > - **App Store strategy** (keywords, category, subtitle, description hook, screenshot copy, rating prompt)
-> - **Launch content** (blog post, demo video, social carousel, press release)
-> - **Influencer/community ideas** (niche creators, subreddits, Discord, Twitter/X threads)
-> - **Push notification plan** (welcome, re-engagement, feature announcement, transactional — cadence per type)
-> - **Referral loop** (share mechanism, reward structure, viral coefficient target)
-> - **30-day retention metrics** (D1, D7, D14, D30 targets + action plan per day)
+> - **Launch content** (blog, demo video, social carousel, press release)
+> - **Influencer/community** (niche creators, subreddits, Discord, Twitter/X threads)
+> - **Push plan** (welcome, re-engagement, feature, transactional — cadence per type)
+> - **Referral loop** (share mechanism, reward, viral coefficient target)
+> - **30-day retention** (D1/D7/D14/D30 targets + action per day)
 
 **Output template:**
 ```markdown
@@ -568,65 +557,65 @@ final router = GoRouter(
 ## Pre-Launch Checklist
 | When | Task | Owner |
 |------|------|-------|
-| T-30 | Finalize app icon + screenshots | Design |
-| T-30 | Write privacy policy + ToS | Legal |
+| T-30 | Finalize icon + screenshots | Design |
+| T-30 | Privacy policy + ToS | Legal |
 | T-14 | Submit to App Store + Play Store | Dev |
-| T-7 | Prepare press kit + assets | Marketing |
-| T-1 | Final server scaling test | Backend |
-| T-0 | Flip the switch | PM |
+| T-7 | Press kit + assets | Marketing |
+| T-1 | Server scaling test | Backend |
+| T-0 | Launch | PM |
 
 ## Beta Plan
-- **Platform:** TestFlight + Play Console internal testing
+- **Platform:** TestFlight + Play Console internal
 - **Cohort:** 500 users
-- **Feedback:** In-app survey (NPS) + weekly 1:1 calls with top 10
-- **Target NPS:** >40 at beta exit
+- **Feedback:** In-app NPS survey + weekly 1:1 calls (top 10)
+- **Target NPS:** >40 at exit
 
 ## Onboarding
-- **First-run funnel:** Sign up → Permission request → Quick tutorial (3 steps) → First value action
-- **Activation step:** [specific action that predicts retention]
-- **Time-to-value:** <90 seconds from install to aha moment
+- **Funnel:** Sign up → Permissions → Tutorial (3 steps) → First value action
+- **Activation step:** [action predicting retention]
+- **Time-to-value:** <90s from install to aha
 
 ## App Store Strategy
 | Element | Strategy |
 |---------|----------|
-| Keywords | [top 10 keywords] |
+| Keywords | [top 10] |
 | Category | [primary + secondary] |
 | Subtitle | [30 chars] |
-| Description hook | [first 2 lines] |
-| Screenshot copy | [per screenshot plan] |
+| Hook | [first 2 lines] |
+| Screenshots | [per screenshot plan] |
 
 ## Launch Content
-1. Blog post: "Why we built [APP NAME]" (ProductHunt + Medium)
-2. Demo video: 60s, social-first (vertical), 3 hook cuts
+1. Blog: "Why we built [APP NAME]" (ProductHunt + Medium)
+2. Demo video: 60s, vertical, 3 hook cuts
 3. Social carousel: 5-slide Instagram/LinkedIn explainer
-4. Press release: distributed via [wire service]
+4. Press release: [wire service]
 
 ## Influencer & Community
-- **Creators:** 5 micro-influencers in [niche] — free lifetime Pro in exchange for post
+- **Creators:** 5 micro-influencers in [niche] — free lifetime Pro for post
 - **Subreddits:** r/[niche] — value post (not link drop)
-- **Discord:** Launch day AMA in 3 relevant servers
-- **Twitter/X:** Thread with 10 tips → CTA to download
+- **Discord:** Launch day AMA in 3 servers
+- **Twitter/X:** 10-tip thread → CTA to download
 
 ## Push Notification Plan
-| Type | Trigger | Cadence | Copy style |
-|------|---------|---------|------------|
-| Welcome | Install +60 min | 1x only | Warm, benefit-driven |
+| Type | Trigger | Cadence | Tone |
+|------|---------|---------|------|
+| Welcome | Install +60min | 1x | Warm, benefit |
 | Re-engagement | 3d inactive | Max 2/week | Curiosity + FOMO |
-| Feature | New feature | 1x per feature | Educational |
-| Transactional | User action | Real-time | Neutral, info |
+| Feature | New feature | 1x | Educational |
+| Transactional | User action | Real-time | Neutral |
 
 ## Referral Loop
 - **Mechanism:** Share invite link → both get [reward]
 - **Reward:** [1 month Pro / 5 credits / exclusive content]
-- **Target viral coefficient:** >0.3
+- **Viral coefficient target:** >0.3
 
-## 30-Day Retention Plan
+## 30-Day Retention
 | Day | Target | Action |
 |-----|--------|--------|
-| D1 | >40% | Push: "You're in! Try [core action]" |
-| D7 | >25% | Notification + email: "Your weekly summary" |
+| D1 | >40% | Push: "Try [core action]" |
+| D7 | >25% | Notification + email: "Weekly summary" |
 | D14 | >20% | Feature announcement push |
-| D30 | >15% | "You've been here 30 days! Here's what you achieved" |
+| D30 | >15% | "30 day milestone — here's what you achieved" |
 ```
 
 ---
@@ -634,30 +623,29 @@ final router = GoRouter(
 ## Phase 10: Complete Lead (Program Management)
 
 **Prompt:**
-> Act as my senior mobile apps leader. I'm creating `[APP NAME]` for `[TARGET USERS]` using `[TECHNOLOGY STACK]`. Divide the project into phases: strategy, UX, architecture, backend, code, QA, and launch. For each phase, give me:
-> - **Deliverables** (artifacts produced)
-> - **Key decisions** (choices that must be locked before proceeding)
-> - **Risks** (what could go wrong + contingency)
-> - **Next prompts** (specific questions to ask your team / the AI)
+> Act as senior mobile apps leader. Building `[APP NAME]` for `[TARGET USERS]` with `[TECH STACK]`. Divide into phases: strategy, UX, architecture, backend, code, QA, launch. Per phase:
+> - **Deliverables** (artifacts)
+> - **Key decisions** (choices to lock before proceeding)
+> - **Risks** (what goes wrong + contingency)
+> - **Next prompts** (questions for team / AI)
 >
-> Format: **table** per phase, summary timeline at end.
+> Format: **table** per phase, summary timeline.
 
 **Output template:**
 ```markdown
 # Complete Lead: [APP NAME]
 
 ## Phase Map
-
 | Phase | Timeline | Deliverables | Gate |
 |-------|----------|--------------|------|
-| 1. Strategy | Week 1-2 | Blueprint doc, personas, value prop | Approved by stakeholders |
+| 1. Strategy | Week 1-2 | Blueprint, personas, value prop | Stakeholder approval |
 | 2. UX | Week 2-3 | UX flow, wireframes, microcopy | Usability test pass |
-| 3. Architecture | Week 3-4 | App structure, DB schema, API design | Tech review sign-off |
-| 4. Backend | Week 4-8 | DB deployed, APIs live, admin panel | API integration test pass |
+| 3. Architecture | Week 3-4 | Structure, DB schema, API design | Tech review sign-off |
+| 4. Backend | Week 4-8 | DB deployed, APIs live, admin | API integration pass |
 | 5. Design | Week 4-6 | Design system, all screens | Design QA pass |
-| 6. Code | Week 5-12 | Starter code, all features | Sprint demo acceptance |
-| 7. QA | Week 12-14 | Audit report, bug fixes, performance | Crash rate <0.1% |
-| 8. Launch | Week 14-16 | App Store submission, GTM plan | Launch day checklist |
+| 6. Code | Week 5-12 | Working app, tests, CI | Sprint demo acceptance |
+| 7. QA | Week 12-14 | Audit, bug fixes, perf | Crash rate <0.1% |
+| 8. Launch | Week 14-16 | App Store submission, GTM | Launch checklist done |
 
 ## Phase Details
 
@@ -665,65 +653,65 @@ final router = GoRouter(
 | Area | Detail |
 |------|--------|
 | Deliverables | Blueprint doc, personas, value prop, feature matrix |
-| Key decisions | Platform first: iOS vs Android vs both. Monetization model. MVP scope boundary. |
-| Risks | Unvalidated demand (do surveys first). Scope creep (hold MVP line). |
-| Next prompts | "Rank these 3 persona segments by revenue potential." "What assumptions need validation before building?" |
+| Key decisions | Platform first (iOS vs Android vs both). Monetization model. MVP boundary. |
+| Risks | Unvalidated demand (survey first). Scope creep (hold MVP line). |
+| Next prompts | "Rank 3 persona segments by revenue potential." "What assumptions need validation before building?" |
 
 ### Phase 2: UX
 | Area | Detail |
 |------|--------|
-| Deliverables | Screen-by-screen UX plan, onboarding flow, error/empty states, microcopy sheet |
-| Key decisions | Navigation pattern (tabs vs drawer). Permission request timing. First-run flow order. |
-| Risks | Over-designed first version (ship simpler). Permission prompt rejection (delay non-critical). |
-| Next prompts | "Show me the onboarding funnel with drop-off estimates." "Which screen has the highest cognitive load?" |
+| Deliverables | Screen-by-screen plan, onboarding flow, error/empty states, microcopy |
+| Key decisions | Nav pattern (tabs vs drawer). Permission timing. First-run flow. |
+| Risks | Over-designed v1 (ship simpler). Permission rejection (delay non-critical). |
+| Next prompts | "Show onboarding funnel with drop-off estimates." "Which screen has highest cognitive load?" |
 
 ### Phase 3: Architecture
 | Area | Detail |
 |------|--------|
-| Deliverables | Folder structure, state management plan, API contracts, DB schema, navigation map |
-| Key decisions | State management library. Offline-first vs online-first. Local DB choice. |
-| Risks | Wrong abstraction layer (too generic). Over-engineering early (YAGNI). |
-| Next prompts | "Draw the data flow from API → state → UI for the home screen." "Estimate API response sizes." |
+| Deliverables | Folder structure, state mgmt plan, API contracts, DB schema, nav map |
+| Key decisions | State mgmt library. Offline-first vs online-first. Local DB. |
+| Risks | Wrong abstraction (too generic). Over-engineering (YAGNI). |
+| Next prompts | "Draw data flow API → state → UI for home screen." "Estimate API response sizes." |
 
 ### Phase 4: Backend
 | Area | Detail |
 |------|--------|
 | Deliverables | DB migrations, REST/GraphQL endpoints, auth system, admin dashboard, CI/CD |
-| Key decisions | Serverless vs dedicated. SQL vs NoSQL. REST vs GraphQL. Image processing approach. |
-| Risks | Scaling too early (stay monolithic). Payment integration errors (test webhooks thoroughly). |
-| Next prompts | "What's the peak concurrent user estimate? Does the architecture handle 10x?" "Run through the payment failure flow." |
+| Key decisions | Serverless vs dedicated. SQL vs NoSQL. REST vs GraphQL. Image processing. |
+| Risks | Scaling too early (stay monolithic). Payment integration errors (test webhooks). |
+| Next prompts | "Peak concurrent user estimate? Handle 10x?" "Run payment failure flow." |
 
 ### Phase 5: Design
 | Area | Detail |
 |------|--------|
-| Deliverables | Design system (colors, fonts, components), final screen designs, asset exports |
+| Deliverables | Design system (colors, fonts, components), final screens, asset exports |
 | Key decisions | Animation library. Icon set (custom vs system). Dark mode scope. |
-| Risks | Design mismatch with platform conventions. Heavy animations hurting performance. |
-| Next prompts | "Show screenshots on iPhone SE and Android small screen." "Is the design system accessible (WCAG AA)?" |
+| Risks | Design mismatch with platform conventions. Heavy animations → perf hit. |
+| Next prompts | "Show screenshots on iPhone SE + Android small screen." "WCAG AA accessible?" |
 
 ### Phase 6: Code
 | Area | Detail |
 |------|--------|
 | Deliverables | Working app with all MVP features, test coverage, CI pipeline |
 | Key decisions | Testing framework. Code review process. Branch strategy. |
-| Risks | Incomplete error handling (ship with global error boundary only). Missing analytics (add early). |
-| Next prompts | "Generate the API client classes for all endpoints." "What's the test coverage report?" |
+| Risks | Incomplete error handling (ship global error boundary). Missing analytics (add early). |
+| Next prompts | "Generate API client classes for all endpoints." "Test coverage report?" |
 
 ### Phase 7: QA
 | Area | Detail |
 |------|--------|
-| Deliverables | Audit report, bug tracker, crash-free rate, performance benchmarks |
-| Key decisions | Which bugs block launch. Performance budget for each screen. |
-| Risks | Launching with known critical bugs. Weak error states discovered late. |
-| Next prompts | "Run a brutal audit on the current build." "What's the app size on device?" |
+| Deliverables | Audit report, bug tracker, crash-free rate, perf benchmarks |
+| Key decisions | Which bugs block launch. Perf budget per screen. |
+| Risks | Launch with known critical bugs. Weak error states found late. |
+| Next prompts | "Run brutal audit on current build." "App size on device?" |
 
 ### Phase 8: Launch
 | Area | Detail |
 |------|--------|
-| Deliverables | App Store submission, GTM calendar, press kit, beta cohort results |
-| Key decisions | Launch day: soft vs hard. Pricing finalization. Country rollout order. |
-| Risks | App Store rejection (budget 2 weeks). Server overload on launch day (auto-scale). |
-| Next prompts | "Generate the App Store description with keywords." "Create the 30-day push notification plan." |
+| Deliverables | App Store submission, GTM calendar, press kit, beta results |
+| Key decisions | Soft vs hard launch. Pricing finalization. Country rollout order. |
+| Risks | App Store rejection (budget 2 weeks). Server overload (auto-scale). |
+| Next prompts | "Generate App Store description with keywords." "Create 30-day push notification plan." |
 
 ## Timeline
 ```
